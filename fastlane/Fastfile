@@ -1,0 +1,24 @@
+lane :decrypt_keys do
+  files = [
+    "fixtures/HelloWorld.swift",
+    "fixtures/PrivateKeys.swift"
+  ]
+  gitcrypt(
+    command: "decrypt",
+    git_url: "git@github.com:[GITHUB USERNAME]/encrypted-files",
+    files: files,
+    passphrase: "[PASSPHRASE]",
+    ref: 'master')
+end
+
+lane :encrypt_keys do
+  files = [
+    "fixtures/HelloWorld.swift",
+    "fixtures/PrivateKeys.swift"
+  ]
+  gitcrypt(
+    command: "encrypt",
+    git_url: "git@github.com:[GITHUB USERNAME]/encrypted-files",
+    files: files,
+    passphrase: "[PASSPHRASE]")
+end
